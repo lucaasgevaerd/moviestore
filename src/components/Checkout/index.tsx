@@ -81,7 +81,7 @@ function Checkout() {
           <div className='purchase-view-container-and-button'>
             <div className="purchase-view-container">
               {state.map(movie => (
-                <PurchasedItem image={movie.img} name={movie.tit} quantity={movie.qtt} price={movie.pri} />
+                <PurchasedItem image={movie.img} name={movie.tit} quantity={movie.qtt} price={movie.pri} key={movie.id} />
               ))}
             </div>
             <Button buttonText='Finalizar' />

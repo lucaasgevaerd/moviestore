@@ -53,7 +53,7 @@ function Home() {
         <div className="row">
           {movies?.results.map(movie => (
             <div className="col-sm-6 col-lg-4 col-xl-3 d-flex justify-content-center" key={movie.id}>
-              <MovieCard handleMovieData={handleMovieData} movieImage={address_image + movie.poster_path} release={formatDate(movie.release_date)!} title={movie.title} voteAverage={movie.vote_average} /* genre={movie.genre_ids} */ price={99.99} idMovie={movie.id} />
+              <MovieCard handleMovieData={handleMovieData} movieImage={address_image + movie.poster_path} release={formatDate(movie.release_date)!} title={movie.title} voteAverage={movie.vote_average} /* genre={movie.genre_ids} */ price={99.99} idMovie={movie.id} key={movie.id} />
             </div>
           ))}
         </div>
