@@ -1,0 +1,20 @@
+.item-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.trash:hover {
+  cursor: pointer;
+}
+
+.item-image {
+  width: 50px;
+}
+
+.item-title {
+  height: 40px;
+  width: 100px;
+}

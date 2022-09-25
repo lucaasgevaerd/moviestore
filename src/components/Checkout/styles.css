@@ -1,0 +1,69 @@
+.checkout-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 90px;
+  width: 100%;
+  padding: 90px 10px 10px;
+}
+
+.checkout-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.buyer-data-and-purchase-view-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.buyer-data-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+}
+
+.purchase-view-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+}
+
+.buyer-data-container input,
+.buyer-data-container select {
+  height: 40px;
+  border: 2px solid #bbb;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.buyer-data-container input::placeholder,
+.buyer-data-container select::placeholder {
+  color: #bbb;
+}
+
+@media (min-width: 992px) {
+  .buyer-data-and-purchase-view-container {
+    margin-top: 30px;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .buyer-data-container {
+    margin-right: 160px;
+  }
+
+  .purchase-view-container {
+    height: 380px;
+    overflow: auto;
+    margin-bottom: 20px;
+  }
+}
