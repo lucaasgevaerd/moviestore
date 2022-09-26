@@ -16,6 +16,7 @@ function ShoppingCart() {
 
   const handleClear = () => {
     setState([])
+    showSidebar()
   }
 
   const handleUnits = () => {

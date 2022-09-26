@@ -27,12 +27,20 @@
   max-width: 400px;
 }
 
+.purchase-view-container-and-button {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #000;
+}
+
 .purchase-view-container {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   width: 100%;
-  max-width: 400px;
+  max-width: 600px;
 }
 
 .buyer-data-container input,
@@ -50,11 +58,83 @@
   color: #bbb;
 }
 
+.checkout-total-value-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.checkout-total {
+  font-size: 20px;
+}
+
+.checkout-value {
+  font-size: 28px;
+}
+
+.purchase-header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-container {
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: opacity 0.4s;
+  padding: 10px;
+  min-height: 100vh;
+}
+
+.modal-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  max-width: 500px;
+  height: 270px;
+  background-color: rgb(240, 240, 240);
+  border-radius: 10px;
+}
+
+.modal-thanks {
+  font-size: 26px;
+  text-align: justify;
+  text-align-last: center;
+  margin-bottom: 30px;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.modal-description {
+  font-size: 20px;
+  text-align: justify;
+  text-align-last: center;
+  margin-bottom: 30px;
+  color: #000;
+  margin-bottom: 60px;
+}
+
+.modal-link {
+  width: 100%;
+}
+
 @media (min-width: 992px) {
   .buyer-data-and-purchase-view-container {
     margin-top: 30px;
     flex-direction: row;
     align-items: flex-start;
+    justify-content: center;
   }
 
   .buyer-data-container {
@@ -65,5 +145,12 @@
     height: 380px;
     overflow: auto;
     margin-bottom: 20px;
+  }
+
+  .purchase-view-container-and-button {
+    width: 400px;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
   }
 }
