@@ -1,23 +1,45 @@
 import './styles.css'
 import Button from '../Button';
 import { FaStar } from "react-icons/fa";
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Loader from '../Loader';
+import { PurchasesContext } from '../../App';
 
 type Props = {
-  movieImage: string;
+  image: string;
   release: string;
   title: string;
   voteAverage: number;
   genre?: [{}];
   price: number;
-  idMovie: number;
-  handleMovieData: Function;
+  id: number;
+  handleMovieData?: Function;
 }
 
-function MovieCard({ movieImage, release, title, voteAverage, price, genre, idMovie, handleMovieData }: Props) {
+function MovieCard({ image, release, title, voteAverage, price, genre, id, handleMovieData }: Props) {
 
   const [loaded, setLoaded] = useState(false);
+  const { state, setState } = useContext(PurchasesContext)
+
+  const handleSendMovie = () => {
+    const movie = {
+      image,
+      title,
+      price,
+      quantity: 1,
+      id
+    }
+    if (state.length === 0) {
+      setState([movie])
+    } else {
+      if (state.some(item => item.id === movie.id)) {
+        state.filter(item => item.id === movie.id && [...state, { quantity: item.quantity++ }])
+        return setState([...state])
+      } else {
+        return setState([...state, { ...movie, quantity: 1 }])
+      }
+    }
+  }
 
   return (
     <div className="movie-card-container">
@@ -34,7 +56,7 @@ function MovieCard({ movieImage, release, title, voteAverage, price, genre, idMo
             </div>
           </div>
         )}
-        <img src={movieImage} alt={`Imagem de ${title}`} onLoad={() => setLoaded(true)} style={loaded ? {} : { display: "none" }} />
+        <img src={image} alt={`Imagem de ${title}`} onLoad={() => setLoaded(true)} style={loaded ? {} : { display: "none" }} />
         <p className='movie-card-release'>{release}</p>
       </div>
       <div className="content-container">
@@ -46,7 +68,7 @@ function MovieCard({ movieImage, release, title, voteAverage, price, genre, idMo
         </div>
         <p className="price">R$ {price}</p>
       </div>
-      <div onClick={() => handleMovieData({ img: movieImage, tit: title, qtt: 1, pri: price, id: idMovie })} className="add-movies-button-container">
+      <div onClick={() => handleSendMovie()} className="add-movies-button-container">
         <Button buttonText="Adicionar" />
       </div>
     </div>

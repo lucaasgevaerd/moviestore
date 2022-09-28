@@ -4,9 +4,9 @@ import $ from 'jquery';
 import 'jquery-mask-plugin/dist/jquery.mask';
 import { PurchasesContext } from '../../App';
 import { useContext } from 'react';
-import PurchasedItem from '../PurchasedItem';
-import Button from '../Button';
 import { Link } from 'react-router-dom';
+import PurchasedItem from './PurchasedItem';
+import Button from '../../components/Button';
 
 function Checkout() {
   const {
@@ -49,7 +49,7 @@ function Checkout() {
 
   const handleTotalvalue = () => {
     const sum = state.reduce((accumulator, object) => {
-      return accumulator + object.qtt * object.pri;
+      return accumulator + object.quantity * object.price;
     }, 0);
     return parseFloat(sum.toFixed(2))
   }
@@ -106,7 +106,7 @@ function Checkout() {
             </div>
             <div className="purchase-view-container">
               {state.map(movie => (
-                <PurchasedItem image={movie.img} name={movie.tit} quantity={movie.qtt} price={movie.pri} key={movie.id} />
+                <PurchasedItem image={movie.image} name={movie.title} quantity={movie.quantity} price={movie.price} key={movie.id} />
               ))}
             </div>
             <div className='checkout-total-value-container'>

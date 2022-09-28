@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import Checkout from "./components/Checkout";
-import Home from "./components/Home";
 import Navbar from "./components/Navbar";
+import Checkout from "./Pages/Checkout";
+import Home from "./Pages/Home";
 
 const AppRouter = () => {
 

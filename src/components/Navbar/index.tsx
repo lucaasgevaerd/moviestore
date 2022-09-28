@@ -1,6 +1,6 @@
 import './styles.css'
 import { FaSearch, FaHeart } from "react-icons/fa";
-import ShoppingCart from '../ShoppingCart';
+import ShoppingCart from './ShoppingCart';
 import { Link } from 'react-router-dom';
 
 function Navbar() {

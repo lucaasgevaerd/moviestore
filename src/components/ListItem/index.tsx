@@ -4,11 +4,13 @@ import './styles.css'
 type Props = {
   cartMovieImage: string;
   cartMovieTitle: string;
-  cartMovieQuantity: number;
   cartMoviePrice: number;
+  cartMovieQuantity: number;
+  cartMovieId: number;
+  handleMovieDelete: Function;
 }
 
-function Item({ cartMovieImage, cartMovieTitle, cartMovieQuantity, cartMoviePrice }: Props) {
+function ListItem({ handleMovieDelete, cartMovieImage, cartMovieTitle, cartMoviePrice, cartMovieQuantity, cartMovieId }: Props) {
 
   return (
     <div className="item-container">
@@ -16,9 +18,9 @@ function Item({ cartMovieImage, cartMovieTitle, cartMovieQuantity, cartMoviePric
       <p className='item-title'>{cartMovieTitle}</p>
       <p className='item-quantity'>{cartMovieQuantity}</p>
       <p className='item-price'>R$ {cartMoviePrice}</p>
-      <FaTrash className='trash' />
+      <FaTrash className='trash' onClick={() => handleMovieDelete({ img: cartMovieImage, tit: cartMovieTitle, pri: cartMoviePrice, qtt: cartMovieQuantity, id: cartMovieId })} />
     </div>
   )
 }
 
-export default Item
+export default ListItem

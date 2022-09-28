@@ -8,7 +8,6 @@ export const PurchasesContext = createContext({
   setState: (state: CartItem[]) => { },
 });
 
-
 function App() {
 
   const [state, setState] = useState<CartItem[]>([]);
